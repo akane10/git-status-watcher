@@ -1,6 +1,6 @@
 {
   "name": "git-status-watcher",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "git status watcher",
   "main": "main.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "author": "Yapie Rosyadie <yrosyadie@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/akane10/git-status-watche.git"
+    "url": "https://github.com/akane10/git-status-watcher.git"
   },
   "keywords": [
     "watch-git-status",
