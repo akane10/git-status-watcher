@@ -1,0 +1,28 @@
+{
+  "name": "git-status-watcher",
+  "version": "0.0.1",
+  "description": "git status watcher",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "author": "Yapie Rosyadie <yrosyadie@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akane10/git-status-watche.git"
+  },
+  "keywords": [
+    "watch-git-status",
+    "git",
+    "status",
+    "watch",
+    "watcher",
+    "cli"
+  ],
+  "license": "ISC",
+  "dependencies": {},
+  "bin": {
+    "watch-status": "./main.js"
+  }
+}
