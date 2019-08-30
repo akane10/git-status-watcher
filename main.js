@@ -13,6 +13,10 @@ function watchStatus() {
   gitStatus.stdout.on('data', data => {
     console.log(`${data}`);
   });
+
+  gitStatus.stderr.on('data', data => {
+    errHandler(data);
+  });
 }
 
 function main() {
