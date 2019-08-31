@@ -1,6 +1,6 @@
 {
   "name": "git-status-watcher",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "git status watcher",
   "main": "main.js",
   "scripts": {
@@ -23,6 +23,6 @@
   "license": "ISC",
   "dependencies": {},
   "bin": {
-    "watch-status": "./main.js"
+    "git-status-watcher": "./main.js"
   }
 }
