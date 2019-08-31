@@ -8,24 +8,42 @@ function errHandler(err) {
 }
 
 function watchStatus() {
-  const gitStatus = spawn('git', ['status']);
+  return new Promise((resolve, reject) => {
+    const gitStatus = spawn('git', ['status']);
 
-  gitStatus.stdout.on('data', data => {
-    console.log(`${data}`);
-  });
+    gitStatus.stdout.on('data', data => {
+      return resolve(`${data}`);
+    });
 
-  gitStatus.stderr.on('data', data => {
-    errHandler(data);
-  });
-}
-
-function main() {
-  exec('clear', (error, stdout, stderr) => {
-    if (error) {
-      errHandler(error);
-    }
-    console.log(`${stdout}`);
-    watchStatus();
+    gitStatus.stderr.on('data', data => {
+      return reject(data);
+    });
   });
 }
+
+const promiseClear = () => {
+  return new Promise((resolve, reject) => {
+    exec('clear', (error, stdout, stderr) => {
+      if (error) return reject(error);
+
+      return resolve(console.log(`${stdout}`));
+    });
+  });
+};
+
+let old = '';
+
+async function main() {
+  try {
+    const data = await watchStatus();
+    if (data === old) return;
+
+    await promiseClear();
+    old = data;
+    console.log(data);
+  } catch (e) {
+    errHandler(e);
+  }
+}
+
 setInterval(main, 1000);
