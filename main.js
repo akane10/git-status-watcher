@@ -21,7 +21,7 @@ function watchStatus() {
   });
 }
 
-const promiseClear = () => {
+function promiseClear() {
   return new Promise((resolve, reject) => {
     exec('clear', (error, stdout, stderr) => {
       if (error) return reject(error);
@@ -29,7 +29,7 @@ const promiseClear = () => {
       return resolve(console.log(`${stdout}`));
     });
   });
-};
+}
 
 let old = '';
 
